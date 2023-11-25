@@ -32,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    publishing {
+        singleVariant("release")
+    }
 }
 
 dependencies {
@@ -43,10 +46,14 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("release") {
-            groupId = "com.github.rowan-mcalpin"
+        register<MavenPublication>("release") {
+            groupId = "com.rowanmcalpin"
             artifactId = "xenith"
             version = "0.0.1"
+
+            afterEvaluate {
+                from(components["release"])
+            }
         }
     }
 }
