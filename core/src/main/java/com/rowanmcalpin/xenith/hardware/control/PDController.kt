@@ -6,9 +6,19 @@ import com.qualcomm.robotcore.util.ElapsedTime
  * This class controls a motor using proportional and derivative coefficients to calculate the power that the motor
  * should be set to during any given time.
  *
- * @param coefficients the coefficients for the PD controller
+ * @param kP the proportional coefficient
+ * @param kD the derivative coefficient
  */
-class PDController(private val coefficients: PDCoefficients): MotorController() {
+@Suppress("unused")
+class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () -> Double = { 0.0 }): MotorController() {
+    /**
+     * This class controls a motor using proportional and derivative coefficients to calculate the power that the motor
+     * should be set to during any given time.
+     *
+     * @param kP the proportional coefficient
+     * @param kD the derivative coefficient
+     */
+    constructor(kP: Double = 0.005, kD: Double = 0.0): this({ kP },{ kD })
     /**
      * The target value (usually position or velocity) that the MotorController should be aiming for.
      */
@@ -43,6 +53,6 @@ class PDController(private val coefficients: PDCoefficients): MotorController() 
         lastError = error
         timer.reset()
 
-        return (error * coefficients.kP) + (derivative * coefficients.kD)
+        return (error * kP.invoke()) + (derivative * kD.invoke())
     }
 }

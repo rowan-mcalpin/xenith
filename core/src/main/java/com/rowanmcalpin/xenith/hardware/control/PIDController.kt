@@ -6,11 +6,21 @@ import com.qualcomm.robotcore.util.ElapsedTime
  * This class controls a motor using proportional, integral, and derivative coefficients to calculate the power that the
  * motor should be set to during any given time.
  *
- * @param coefficients the coefficients for the PID controller
+ * @param kP the proportional coefficient
+ * @param kI the integral coefficient
+ * @param kD the derivative coefficient
  */
 @Suppress("unused")
-class PIDController(private val coefficients: PIDCoefficients = PIDCoefficients()): MotorController() {
-
+class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: () -> Double = { 0.0 }, private val kD: () -> Double = { 0.0 }): MotorController() {
+    /**
+     * This class controls a motor using proportional, integral, and derivative coefficients to calculate the power that the
+     * motor should be set to during any given time.
+     *
+     * @param kP the proportional coefficient
+     * @param kI the integral coefficient
+     * @param kD the derivative coefficient
+     */
+    constructor(kP: Double = 0.005, kI: Double = 0.0, kD: Double = 0.0): this({ kP },{ kI },{ kD })
     /**
      * The sum of the error over time.
      */
@@ -52,6 +62,6 @@ class PIDController(private val coefficients: PIDCoefficients = PIDCoefficients(
         lastError = error
         timer.reset()
 
-        return (error * coefficients.kP) + (derivative * coefficients.kD) + (integralSum * coefficients.kI)
+        return (error * kP.invoke()) + (derivative * kD.invoke()) + (integralSum * kI.invoke())
     }
 }

@@ -5,7 +5,6 @@ package com.rowanmcalpin.xenith.hardware.control
  * A motor controller is simply a class that calculates the power to set a motor to.
  */
 abstract class MotorController {
-
     /**
      * The target value (usually position or velocity) that the MotorController should be aiming for.
      */

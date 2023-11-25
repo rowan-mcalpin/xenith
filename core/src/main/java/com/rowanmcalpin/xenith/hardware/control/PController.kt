@@ -7,7 +7,15 @@ package com.rowanmcalpin.xenith.hardware.control
  * @param kP the proportional coefficient
  */
 @Suppress("unused")
-class PController(private var kP: () -> Double = { 0.005 }): MotorController() {
+class PController(private val kP: () -> Double = { 0.005 }): MotorController() {
+    /**
+     * This class controls a motor using a proportional coefficient that is applied to the error in order to calculate the
+     * power that the motor should be set to during any given time.
+     * 
+     * @param kP the proportional coefficient
+     */
+    constructor(kP: Double = 0.005): this({ kP })
+
     /**
      * The target value (usually position or velocity) that the MotorController should be aiming for.
      */
