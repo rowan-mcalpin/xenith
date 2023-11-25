@@ -19,15 +19,13 @@ import com.rowanmcalpin.xenith.hardware.control.MotorController
  * @param gearRatio the total gear ratio of the motor (internal gearing + any external gearing)
  * @param _direction the direction the motor should consider "positive"
  */
-@Suppress("unused")
+@Suppress("unused", "MemberVisibilityCanBePrivate")
 open class MotorEx(
-    private val deviceName: () -> String,
+    val deviceName: () -> String,
     val motorSpecs: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET,
-    val gearRatio: Double = 1.0,
-    val _direction: DcMotorSimple.Direction = DcMotorSimple.Direction.FORWARD) {
-
-    constructor(deviceName: String, type: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET, ratio: Double = 1.0, direction: DcMotorSimple.Direction = DcMotorSimple.Direction.FORWARD):
-            this({ deviceName }, type, ratio, direction)
+    val gearRatio: Double = 1.0) {
+    constructor(deviceName: String, type: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET, ratio: Double = 1.0):
+            this({ deviceName }, type, ratio)
 
     //region Extended functionality
     /**
@@ -40,7 +38,7 @@ open class MotorEx(
      */
     fun initialize() {
         motor = Constants.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName.invoke())
-        motor.direction = _direction
+        motor.direction = direction
         onInitialize()
     }
 
@@ -49,6 +47,9 @@ open class MotorEx(
      */
     open fun onInitialize() { }
 
+    /**
+     * Gives the number of ticks per revolution this motor has.
+     */
     open val ticksPerRevolution
         get() = motorSpecs.ticksPerRevolution * gearRatio
 
