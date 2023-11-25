@@ -40,3 +40,13 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.github.rowan-mcalpin"
+            artifactId = "xenith"
+            version = "0.0.1"
+        }
+    }
+}
