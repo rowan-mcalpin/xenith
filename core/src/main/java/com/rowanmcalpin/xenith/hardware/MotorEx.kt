@@ -59,7 +59,6 @@ open class MotorEx(
     open fun setMotorDisable() = motor.setMotorDisable()
     open val isMotorEnabled: Boolean
         get() = motor.isMotorEnabled
-    open fun setVelocity(angularRate: Double) { motor.velocity = angularRate }
     open fun setVelocity(angularRate: Double, unit: AngleUnit) { motor.setVelocity(angularRate, unit) }
     open var velocity
         get() = motor.velocity
