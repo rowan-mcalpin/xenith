@@ -8,7 +8,7 @@ abstract class LinearOpModeEx: LinearOpMode() {
     /**
      * The list of subsystems used by this OpMode.
      */
-    val subsystems: List<Subsystem> = listOf()
+    val subsystems: MutableList<Subsystem> = mutableListOf()
 
     /**
      * Initialize all the [Subsystems][Subsystem].
