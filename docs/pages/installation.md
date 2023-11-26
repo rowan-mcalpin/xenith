@@ -38,7 +38,7 @@ maven { url 'https://jitpack.io' }
 3. Scroll down to the `dependencies` block.
 4. Add the following line at the end of the block:
 ```groovy
-implementation 'com.github.rowan-mcalpin:xenith:0.0.0.1'
+implementation 'com.github.rowan-mcalpin:xenith:0.0.0.2'
 ```
 
 Finally, sync your Gradle project, and Xenith is installed!
