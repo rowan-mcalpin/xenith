@@ -18,7 +18,7 @@ class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () 
      * @param kP the proportional coefficient
      * @param kD the derivative coefficient
      */
-    constructor(kP: Double = 0.005, kD: Double = 0.0): this({ kP },{ kD })
+    constructor(kP: Double, kD: Double): this({ kP },{ kD })
     /**
      * The target value (usually position or velocity) that the MotorController should be aiming for.
      */

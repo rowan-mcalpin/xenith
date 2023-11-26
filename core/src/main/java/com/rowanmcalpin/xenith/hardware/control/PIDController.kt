@@ -20,7 +20,7 @@ class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: ()
      * @param kI the integral coefficient
      * @param kD the derivative coefficient
      */
-    constructor(kP: Double = 0.005, kI: Double = 0.0, kD: Double = 0.0): this({ kP },{ kI },{ kD })
+    constructor(kP: Double, kI: Double, kD: Double): this({ kP },{ kI },{ kD })
     /**
      * The sum of the error over time.
      */
