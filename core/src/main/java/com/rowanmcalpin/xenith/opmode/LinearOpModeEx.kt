@@ -55,11 +55,11 @@ abstract class LinearOpModeEx: LinearOpMode() {
     override fun runOpMode() {
         // When the OpMode is initialized, call onInit().
         onInit()
-        // Now call wait() repeatedly until the OpMode is started.
+        // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
             updateSubsystems()
             updateCommandHandler()
-            wait()
+            onWaitForStart()
         }
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
@@ -79,7 +79,7 @@ abstract class LinearOpModeEx: LinearOpMode() {
     /**
      * This function is called repeatedly until the OpMode is started.
      */
-    open fun wait() { }
+    open fun onWaitForStart() { }
 
     /**
      * This function is called repeatedly once the OpMode is started & before it is stopped.
