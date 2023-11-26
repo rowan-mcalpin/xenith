@@ -21,11 +21,9 @@ import com.rowanmcalpin.xenith.hardware.control.MotorController
  */
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 open class MotorEx(
-    val deviceName: () -> String,
+    val deviceName: String,
     val motorSpecs: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET,
     val gearRatio: Double = 1.0) {
-    constructor(deviceName: String, type: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET, ratio: Double = 1.0):
-            this({ deviceName }, type, ratio)
 
     //region Extended functionality
     /**
@@ -37,7 +35,7 @@ open class MotorEx(
      * Initializes the motor by calling hardwareMap.get(), then calls the [onInitialize] function.
      */
     fun initialize() {
-        motor = Constants.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName.invoke())
+        motor = Constants.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName)
         motor.direction = direction
         onInitialize()
     }
