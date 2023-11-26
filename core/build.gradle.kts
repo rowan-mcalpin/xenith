@@ -79,7 +79,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.rowanmcalpin"
             artifactId = "xenith"
-            version = "0.0.0.2"
+            version = "1.0"
 
             afterEvaluate {
                 from(components["release"])
