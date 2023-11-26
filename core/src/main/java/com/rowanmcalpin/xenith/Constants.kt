@@ -1,6 +1,6 @@
 package com.rowanmcalpin.xenith
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.rowanmcalpin.xenith.opmode.LinearOpModeEx
 
 /**
  * The class that contains things that should be able to be referenced from anywhere in the library. These aren't
@@ -11,5 +11,5 @@ object Constants {
     /**
      * The currently running OpMode.
      */
-    lateinit var opMode: LinearOpMode
+    lateinit var opMode: LinearOpModeEx
 }

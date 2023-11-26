@@ -1,11 +1,12 @@
 package com.rowanmcalpin.xenith
 
+import com.rowanmcalpin.xenith.subsystems.Subsystem
+
 /**
- * This class handles the scheduling & running of [Commands][Command]. It automatically starts and executes while an
- * OpMode is running.
+ * This class handles the scheduling & running of [Commands][Command].
  */
 @Suppress("unused")
-class CommandHandler {
+object CommandHandler {
     /**
      * The [Commands][Command] currently running.
      */
@@ -24,18 +25,18 @@ class CommandHandler {
     private var commandsToStop: MutableList<Pair<Command, Boolean>> = mutableListOf()
 
     fun addCommand(command: Command) {
-        val sharedIsolatables = sharedIsolatables(command)
+        val sharedSubsystems = sharedSubsystems(command)
 
-        if(sharedIsolatables.isEmpty()) {
+        if(sharedSubsystems.isEmpty()) {
             commandsToStart.add(command)
             return
         }
 
-        sharedIsolatables.forEach { other ->
+        sharedSubsystems.forEach { other ->
             if (!other.protected) {
                 commandsToStop.add(Pair(other, true))
             } else {
-                // There is a protected command that shares an isolatable.
+                // There is a protected command that shares an subsystem.
                 // This command cannot be started.
                 return
             }
@@ -48,7 +49,7 @@ class CommandHandler {
      * Starts any [Commands][Command] that need to be started, then clears [commandsToStart].
      */
     fun startCommands() {
-        commandsToStart.forEach() {
+        commandsToStart.forEach {
             it.start()
             runningCommands.add(it)
         }
@@ -61,7 +62,7 @@ class CommandHandler {
      */
     fun execute() {
         // Execute commands
-        runningCommands.forEach() {
+        runningCommands.forEach {
             it.update()
             if (it.finished) {
                 commandsToStop.add(Pair(it, false))
@@ -76,7 +77,7 @@ class CommandHandler {
     fun stopCommands() {
         // First, check each command that needs to be stopped, and see if it's currently running. If it is, remove it
         // from the list of running commands
-        commandsToStop.forEach() {
+        commandsToStop.forEach {
             // If the command is currently in the list of running commands, remove it
             if(runningCommands.contains(it.first)) {
                 runningCommands.remove(it.first)
@@ -90,21 +91,34 @@ class CommandHandler {
     }
 
     /**
-     * Checks each running [Command] to see if any of them share an [Isolatable] in their
+     * Checks each running [Command] to see if any of them share any [Subsystems][Subsystem] in their
      * [requirements][Command.requirements] with the input. If any do, it returns all the found [Commands][Command] as a
      * list.
      *
-     * @param command the command to check for isolatable conflicts with
-     * @return The list of all [Commands][Command] currently running that share an [Isolatable] in their
+     * @param command the command to check for subsystem conflicts with
+     * @return The list of all [Commands][Command] currently running that share a [Subsystem] in their
      * [requirements][Command.requirements]
      */
-    private fun sharedIsolatables(command: Command): List<Command> {
+    private fun sharedSubsystems(command: Command): List<Command> {
         val results: MutableList<Command> = mutableListOf()
-        runningCommands.forEach() { other ->
-            if(command.sharesIsolatables(other)) {
+        runningCommands.forEach { other ->
+            if(command.sharesSubsystem(other)) {
                 results.add(other)
             }
         }
         return results
+    }
+
+    /**
+     * Returns true if there is a currently running [Command] that uses a specific [Subsystem].
+     *
+     * @param subsystem the subsystem to check for
+     * @return whether there is a [Command] using the [Subsystem]
+     */
+    fun hasActiveSubsystem(subsystem: Subsystem): Boolean {
+        runningCommands.forEach {
+            if(it.requirements.contains(subsystem)) return true
+        }
+        return false
     }
 }

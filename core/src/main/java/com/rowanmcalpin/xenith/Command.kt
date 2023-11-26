@@ -1,5 +1,7 @@
 package com.rowanmcalpin.xenith
 
+import com.rowanmcalpin.xenith.subsystems.Subsystem
+
 /**
  * The command is the core unit in Xenith. It is very abstract, because there are intermediary steps between the basic
  * Command and the classes the user interacts with. It should be exceedingly rare that you will need to reference this
@@ -18,10 +20,10 @@ abstract class Command {
     var isStarted = false
 
     /**
-     *  The list of [Isolatables][Isolatable] that are used by this [Command]. There should only be one running [Command] at a time that
-     *  uses a particular [Isolatable] class.
+     *  The list of [Subsystems][Subsystem] that are used by this [Command]. There should only be one running [Command] at a time that
+     *  uses a particular [Subsystem].
      */
-    open val requirements: List<Isolatable> = listOf()
+    open val requirements: List<Subsystem> = listOf()
 
     /**
      * Whether the command should be protected.
@@ -67,18 +69,18 @@ abstract class Command {
     /**
      * Customizable function that is called once when the command has finished running.
      *
-     * @param blocked if the command was blocked by a different command using the same [Isolatable] class
+     * @param blocked if the command was blocked by a different command using the same [Subsystem] class
      */
     open fun onStop(blocked: Boolean) { }
 
     /**
-     * Whether this command shares any [Isolatable] requirements with any other running commands.
+     * Whether this command shares any [Subsystem] requirements with any other running commands.
      *
      * @param other the other command to compare to
-     * @return Whether the other command shares any [Isolatables][Isolatable] in its [requirements]
+     * @return Whether the other command shares any [Subsystems][Subsystem] in its [requirements]
      */
-    internal fun sharesIsolatables(other: Command): Boolean {
-        other.requirements.forEach() {
+    internal fun sharesSubsystem(other: Command): Boolean {
+        other.requirements.forEach {
             if(requirements.contains(it)) {
                 return true
             }

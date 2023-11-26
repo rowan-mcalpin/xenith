@@ -1,6 +1,6 @@
 # Module core
 
-The core functionality of Xenith
+The core functionality of Xenith.
 
 # Package com.rowanmcalpin.xenith
 
@@ -13,3 +13,7 @@ Any items relating to the interface between hardware and software.
 # Package com.rowanmcalpin.xenith.hardware.control
 
 The motor control classes.
+
+# Package com.rowanmcalpin.xenith.subsystems
+
+The subsystem-related classes; anything that should only be referenced by one command at a time.
