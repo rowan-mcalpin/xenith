@@ -1,4 +1,4 @@
-package com.rowanmcalpin.xenith
+package com.rowanmcalpin.xenith.command
 
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 

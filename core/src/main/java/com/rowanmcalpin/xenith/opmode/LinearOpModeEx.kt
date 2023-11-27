@@ -1,8 +1,8 @@
 package com.rowanmcalpin.xenith.opmode
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
-import com.rowanmcalpin.xenith.CommandHandler
-import com.rowanmcalpin.xenith.Command
+import com.rowanmcalpin.xenith.command.CommandHandler
+import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 
 /**

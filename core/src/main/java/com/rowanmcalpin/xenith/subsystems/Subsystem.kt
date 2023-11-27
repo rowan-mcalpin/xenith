@@ -1,10 +1,10 @@
 package com.rowanmcalpin.xenith.subsystems
 
 /**
- * Anything that extends subsystem can only exist in one [Command][com.rowanmcalpin.xenith.Command] at a time. This would usually be used in scenarios
- * like mechanisms, where there should only be one [Command][com.rowanmcalpin.xenith.Command] talking to it at any moment. Additionally, the
- * [CommandHandler][com.rowanmcalpin.xenith.CommandHandler] will run [continuous] every loop, and [activeContinuous] every loop that it is being used by a
- * [Command][com.rowanmcalpin.xenith.Command].
+ * Anything that extends subsystem can only exist in one [Command][com.rowanmcalpin.xenith.command.Command] at a time. This would usually be used in scenarios
+ * like mechanisms, where there should only be one [Command][com.rowanmcalpin.xenith.command.Command] talking to it at any moment. Additionally, the
+ * [CommandHandler][com.rowanmcalpin.xenith.command.CommandHandler] will run [continuous] every loop, and [activeContinuous] every loop that it is being used by a
+ * [Command][com.rowanmcalpin.xenith.command.Command].
  */
 interface Subsystem {
     /**
@@ -14,12 +14,12 @@ interface Subsystem {
     fun initialize() { }
 
     /**
-     * This function is run by the [CommandHandler][com.rowanmcalpin.xenith.CommandHandler] every loop.
+     * This function is run by the [CommandHandler][com.rowanmcalpin.xenith.command.CommandHandler] every loop.
      */
     fun continuous() { }
 
     /**
-     * This function is run by the [CommandHandler][com.rowanmcalpin.xenith.CommandHandler] every loop that the subsystem class is being used by a [Command][com.rowanmcalpin.xenith.Command].
+     * This function is run by the [CommandHandler][com.rowanmcalpin.xenith.command.CommandHandler] every loop that the subsystem class is being used by a [Command][com.rowanmcalpin.xenith.command.Command].
      */
     fun activeContinuous() { }
 }
