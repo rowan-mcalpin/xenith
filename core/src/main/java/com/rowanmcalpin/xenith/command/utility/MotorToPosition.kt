@@ -28,6 +28,16 @@ class MotorToPosition(
     override val protected: Boolean = false,
     private val errorThreshold: Int = 15
 ): Command() {
+    constructor (
+        motor: MotorEx,
+        controller: MotorController,
+        target: Int,
+        speed: Double,
+        requirement: Subsystem,
+        protected: Boolean = false,
+        errorThreshold: Int = 15
+    ): this(motor, controller, target, speed, listOf(requirement), protected, errorThreshold)
+
     override val finished
         get() = controller.isWithinThreshold(motor.currentPosition.toDouble(), errorThreshold.toDouble())
 

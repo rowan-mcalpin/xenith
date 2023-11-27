@@ -3,9 +3,8 @@ package com.rowanmcalpin.xenith.command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 
 /**
- * The command is the core unit in Xenith. It is very abstract, because there are intermediary steps between the basic
- * Command and the classes the user interacts with. It should be exceedingly rare that you will need to reference this
- * class directly.
+ * The command is the core unit of customizable control in Xenith. It is very abstract, because
+ * there are intermediary steps between the basic Command and the classes the user interacts with.
  */
 abstract class Command {
     /**

@@ -17,6 +17,9 @@ class PowerMotor(
     private val power: Double,
     override val requirements: List<Subsystem>
 ): Command() {
+    constructor (motor: MotorEx, power: Double, requirement: Subsystem):
+            this(motor, power, listOf(requirement))
+
     /**
      * Sets the motors mode and power to the desired power.
      */
