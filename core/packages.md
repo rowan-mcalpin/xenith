@@ -17,3 +17,11 @@ The motor control classes.
 # Package com.rowanmcalpin.xenith.subsystems
 
 The subsystem-related classes; anything that should only be referenced by one command at a time.
+
+# Package com.rowanmcalpin.xenith.command
+
+Root functionality related to commands.
+
+# Package com.rowanmcalpin.xenith.command.utility
+
+Pre-made commands.
