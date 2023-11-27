@@ -23,7 +23,7 @@ import com.rowanmcalpin.xenith.hardware.control.MotorController
 open class MotorEx(
     val deviceName: String,
     val motorSpecs: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET,
-    val gearRatio: Double = 1.0) {
+    val gearRatio: Double = 19.2) {
 
     //region Extended functionality
     /**
