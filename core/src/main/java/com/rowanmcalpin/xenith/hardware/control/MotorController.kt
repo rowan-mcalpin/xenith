@@ -22,4 +22,14 @@ abstract class MotorController {
      * @return the calculated power for the motor
      */
     abstract fun calculate(state: Double): Double
+
+    /**
+     * Checks if the motor is within a certain threshold of the target. Used when calculating if the
+     * motor should be running still.
+     *
+     * @param state the current position of the motor
+     * @param threshold the maximum distance from the target that should return true
+     * @return whether the current state lies within the threshold from the target.
+     */
+    abstract fun isWithinThreshold(state: Double, threshold: Double): Boolean
 }
