@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.rowanmcalpin.xenith"
-    compileSdk = 33
+    compileSdk = 32
 
     defaultConfig {
         minSdk = 24
