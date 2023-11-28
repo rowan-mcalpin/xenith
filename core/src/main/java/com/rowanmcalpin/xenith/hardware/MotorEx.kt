@@ -23,7 +23,8 @@ import com.rowanmcalpin.xenith.hardware.control.MotorController
 open class MotorEx(
     val deviceName: String,
     val motorSpecs: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET,
-    val gearRatio: Double = 19.2) {
+    val gearRatio: Double = 19.2,
+    val resetEncoderOnInit: () -> Boolean = { true }) {
 
     //region Extended functionality
     /**
@@ -37,6 +38,8 @@ open class MotorEx(
     fun initialize() {
         motor = Constants.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName)
         motor.direction = direction
+        if (resetEncoderOnInit.invoke())
+            motor.mode = DcMotor.RunMode.STOP_AND_RESET_ENCODER
         onInitialize()
     }
 
