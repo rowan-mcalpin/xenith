@@ -30,7 +30,9 @@ Kotlin is now installed in your project!
 Now that Kotlin is installed, you can install Xenith into your project.
 
 1. Open `build.dependencies.gradle` and locate the `repositories` block. It should look like this:
+
 ![](../images/empty-repositories-block.png)
+
 2. At the end of this  block, add this line:
 ```groovy
 maven { url 'https://jitpack.io' }
