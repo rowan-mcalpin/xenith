@@ -15,8 +15,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -42,10 +40,10 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
+//
+//    implementation("androidx.core:core-ktx:1.12.0")
+//    implementation("androidx.appcompat:appcompat:1.6.1")
+//    implementation("com.google.android.material:material:1.10.0")
 
     compileOnly("org.firstinspires.ftc:RobotCore:9.0.1")
     compileOnly("org.firstinspires.ftc:Hardware:9.0.1")
