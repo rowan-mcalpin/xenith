@@ -99,6 +99,12 @@ open class MotorEx(
         set(it) { motor.power = it }
     //endregion
 
+    fun holdCurrentPosition() {
+        mode = DcMotor.RunMode.RUN_TO_POSITION
+        motor.targetPosition = motor.currentPosition
+        motor.power = 1.0
+    }
+
     /**
      * This enum stores the information of each different type of motor.
      *
