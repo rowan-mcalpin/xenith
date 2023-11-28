@@ -10,18 +10,39 @@ _If you already have Kotlin installed in your project, skip to [installing Xenit
 Xenith and Java, you are in the wrong place. However, Xenith may still be usable in Java, although
 no promises are made.
 
-First, we need to install the Kotlin dependency. 
+First, we need to install Kotlin. 
 
 1. Open your root `build.gradle` file.
 2. At the very top of the `buildscript` block, add these three lines:
 ```groovy
 ext {
-    kotlin_version = '1.9.21'
+    kotlin_version = '1.9.0'
 }
 ```
 3. Now, scroll down to the `buildscript.dependencies` block. Add this line:
 ```groovy
 classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+```
+
+Now, we need to explicitly add it to our TeamCode module.
+
+Open `teamcode/build.gradle`.
+
+Locate this line
+```groovy
+// Custom definitions may go here
+```
+
+Directly below it, add this line:
+```groovy
+apply plugin: 'kotlin-android'
+```
+
+Finally, scroll down to the dependencies block.
+
+At the bottom, add this line:
+```groovy
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 ```
 
 Kotlin is now installed in your project!
