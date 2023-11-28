@@ -1,6 +1,7 @@
 package com.rowanmcalpin.xenith.opmode
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.rowanmcalpin.xenith.Constants
 import com.rowanmcalpin.xenith.command.CommandHandler
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
@@ -53,6 +54,8 @@ abstract class LinearOpModeEx: LinearOpMode() {
      * OpMode has been stopped, and you must manually update the command handler & subsystems.
      */
     override fun runOpMode() {
+        // Set the opMode variable to this OpMode
+        Constants.opMode = this
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
