@@ -9,7 +9,7 @@ import com.rowanmcalpin.xenith.command.Command
  */
 class TimeDelay(private val seconds: Double): Command() {
     /**
-     * If the timer is up, the commmand is finished.
+     * If the timer is up, the command is finished.
      */
     override val finished: Boolean
         get() = timer.seconds() >= seconds

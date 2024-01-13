@@ -35,7 +35,7 @@ Update is called *repeatedly* once the OpMode is started, until it is stopped.
 
 OnStop is called *once* when the OpMode is stopped. 
 
-**NOTE:** *NEVER* move motors, servos, etc in this function. There should be no loops in this function,
+**NOTE:** *NEVER* move motors, servos, etc. in this function. There should be no loops in this function,
 and should finish as quickly as possible. 
 
 ## Creating a Subsystem

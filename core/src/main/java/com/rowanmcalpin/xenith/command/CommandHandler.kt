@@ -39,7 +39,7 @@ object CommandHandler {
             if (!other.protected) {
                 commandsToStop.add(Pair(other, true))
             } else {
-                // There is a protected command that shares an subsystem.
+                // There is a protected command that shares a subsystem.
                 // This command cannot be started.
                 return
             }

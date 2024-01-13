@@ -6,7 +6,7 @@ import com.rowanmcalpin.xenith.command.Command
  * This is a special command that contains and manages other commands. Used by [SequentialGroup] and
  * [ParallelGroup]
  */
-abstract class CommandGroup(): Command() {
+abstract class CommandGroup : Command() {
     /**
      * The list of commands that will be run.
      */

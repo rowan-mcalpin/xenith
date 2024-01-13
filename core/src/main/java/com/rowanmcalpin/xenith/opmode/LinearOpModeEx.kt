@@ -1,7 +1,6 @@
 package com.rowanmcalpin.xenith.opmode
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
-import com.rowanmcalpin.xenith.Constants
 import com.rowanmcalpin.xenith.command.CommandHandler
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
@@ -55,7 +54,7 @@ abstract class LinearOpModeEx: LinearOpMode() {
      */
     override fun runOpMode() {
         // Set the opMode variable to this OpMode
-        Constants.opMode = this
+        OpModeInfo.opMode = this
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
@@ -90,7 +89,7 @@ abstract class LinearOpModeEx: LinearOpMode() {
     open fun update() { }
 
     /**
-     * This function is called once once the stop button has been pressed. This function should
+     * This function is called once, when the stop button has been pressed. This function should
      * NEVER power motors, servos, or complete any robot motion. It should be used to deconstruct
      * members and safely stop the program.
      */

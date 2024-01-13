@@ -5,10 +5,10 @@ import com.qualcomm.robotcore.hardware.DcMotorController
 import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.DcMotorSimple
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType
-import com.rowanmcalpin.xenith.Constants
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit
 import com.rowanmcalpin.xenith.hardware.control.MotorController
+import com.rowanmcalpin.xenith.opmode.OpModeInfo
 
 /**
  * This class is the Xenith extension of the DcMotorEx class. It allows more customizable control of a motor, using a
@@ -35,7 +35,7 @@ open class MotorEx(
      * Initializes the motor by calling hardwareMap.get(), then calls the [onInitialize] function.
      */
     fun initialize() {
-        motor = Constants.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName)
+        motor = OpModeInfo.opMode.hardwareMap.get(DcMotorEx::class.java, deviceName)
         motor.direction = direction
         if (resetEncoderOnInit.invoke())
             motor.mode = DcMotor.RunMode.STOP_AND_RESET_ENCODER
