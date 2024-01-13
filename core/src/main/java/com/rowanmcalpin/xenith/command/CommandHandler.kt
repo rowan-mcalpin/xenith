@@ -24,6 +24,9 @@ object CommandHandler {
      */
     private var commandsToStop: MutableList<Pair<Command, Boolean>> = mutableListOf()
 
+    /**
+     * Add a command to run.
+     */
     fun addCommand(command: Command) {
         val sharedSubsystems = sharedSubsystems(command)
 

@@ -15,14 +15,13 @@ import com.rowanmcalpin.xenith.hardware.control.MotorController
  * specific [MotorController], and avoids having to manually run the `hardwareMap.get()` function.
  *
  * @param deviceName the name of the motor, specified by the configuration in the driver station app
- * @param motorSpecs the type of internal motor used
+ * @param type the type of internal motor used
  * @param gearRatio the total gear ratio of the motor (internal gearing + any external gearing)
- * @param _direction the direction the motor should consider "positive"
  */
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 open class MotorEx(
     val deviceName: String,
-    val motorSpecs: MotorSpecs = MotorSpecs.GOBILDA_YELLOWJACKET,
+    val type: Type = Type.GOBILDA_YELLOWJACKET,
     val gearRatio: Double = 19.2,
     val resetEncoderOnInit: () -> Boolean = { true }) {
 
@@ -52,7 +51,7 @@ open class MotorEx(
      * Gives the number of ticks per revolution this motor has.
      */
     open val ticksPerRevolution
-        get() = motorSpecs.ticksPerRevolution * gearRatio
+        get() = type.ticksPerRevolution * gearRatio
 
     //endregion
 
@@ -115,7 +114,7 @@ open class MotorEx(
      * @param maxRPM the no-load rpm of the internal motor (not the output shaft)
      * @param stallTorque the torque at which the motor will stall (torque of the internal motor, not the output shaft)
      */
-    enum class MotorSpecs(
+    enum class Type(
         val ticksPerRevolution: Int,
         val maxRPM: Double,
         val stallTorque: Double
