@@ -66,7 +66,7 @@ tasks.withType(DokkaTask::class).configureEach {
     pluginsMapConfiguration.set(
         mapOf(Pair("org.jetbrains.dokka.base.DokkaBase", """
         {
-            "footerMessage": "Copyright © 2023 Rowan McAlpin"
+            "footerMessage": "Copyright © 2024 Rowan McAlpin"
         }"""))
     )
 }
