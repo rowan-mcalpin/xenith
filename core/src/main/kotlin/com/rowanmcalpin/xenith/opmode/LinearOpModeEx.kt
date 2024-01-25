@@ -4,6 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.rowanmcalpin.xenith.command.CommandHandler
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
+import com.rowanmcalpin.xenith.system.DefaultFlags
+import com.rowanmcalpin.xenith.system.Flag
+import com.rowanmcalpin.xenith.system.Flags
 
 /**
  * This class extends the functionality of [LinearOpMode] with functions and overrides related to
@@ -13,6 +16,28 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
  */
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
+
+    /**
+     * Stores all active [feature flags][Flag].
+     */
+    private val activeFlags: MutableList<Flag> = DefaultFlags.selection.toMutableList()
+
+    /**
+     * Sets the enabled feature flags for this OpMode.
+     */
+    fun setFlags(selectedFlags: Flags) {
+        clearFlags()
+        selectedFlags.selection.forEach {
+            activeFlags.add(it)
+        }
+    }
+
+    /**
+     * Disables all feature flags
+     */
+    fun clearFlags() {
+        activeFlags.clear()
+    }
 
     /**
      * Initialize all the [Subsystems][Subsystem].
@@ -53,18 +78,30 @@ abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): Lin
     override fun runOpMode() {
         // Set the opMode variable to this OpMode
         OpModeInfo.opMode = this
+        // Initialize subsystems if they are used
+        if (activeFlags.contains(Flag.SUBSYSTEM)) {
+            initializeSubsystems()
+        }
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
-            updateSubsystems()
-            updateCommandHandler()
+            if (activeFlags.contains(Flag.SUBSYSTEM)) {
+                updateSubsystems()
+            }
+            if (activeFlags.contains(Flag.COMMAND)) {
+                updateCommandHandler()
+            }
             onWaitForStart()
         }
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
-            updateSubsystems()
-            updateCommandHandler()
+            if (activeFlags.contains(Flag.SUBSYSTEM)) {
+                updateSubsystems()
+            }
+            if (activeFlags.contains(Flag.COMMAND)) {
+                updateCommandHandler()
+            }
             update()
         }
         // The OpMode has been stopped, so call onStop().
