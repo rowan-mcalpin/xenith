@@ -8,13 +8,11 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
 /**
  * This class extends the functionality of [LinearOpMode] with functions and overrides related to
  * [Subsystems][Subsystem] and [Commands][Command].
+ *
+ * @param subsystems The list of subsystems used by this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class LinearOpModeEx: LinearOpMode() {
-    /**
-     * The list of subsystems used by this OpMode.
-     */
-    val subsystems: MutableList<Subsystem> = mutableListOf()
+abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
 
     /**
      * Initialize all the [Subsystems][Subsystem].
