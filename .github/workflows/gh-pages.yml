@@ -1,0 +1,27 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Branch name to trigger deployment
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          
+      - name: Setup JDK
+        uses: actions/setup-java@1
+        with:
+          java-version: 17
+      - name: Build documentation
+        run: ./gradlew dokkaHtml
+      - name: Publish documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: core/build/dokka/html
