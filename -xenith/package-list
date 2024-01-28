@@ -138,12 +138,14 @@ $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/velocity/#/PointingToDe
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/zeroPowerBehavior/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/zero-power-behavior.html
 $dokka.location:com.rowanmcalpin.xenith.opmode////PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/index.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/index.html
-$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/LinearOpModeEx/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/-linear-op-mode-ex.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/LinearOpModeEx/#kotlin.Array[com.rowanmcalpin.xenith.subsystems.Subsystem]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/-linear-op-mode-ex.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/clearFlags/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/clear-flags.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/initializeSubsystems/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/initialize-subsystems.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/onInit/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/on-init.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/onStop/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/on-stop.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/onWaitForStart/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/on-wait-for-start.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/runOpMode/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/run-op-mode.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/setFlags/#com.rowanmcalpin.xenith.system.Flags/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/set-flags.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/subsystems/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/subsystems.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/update/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/update.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/updateCommandHandler/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/update-command-handler.html
@@ -162,6 +164,17 @@ $dokka.location:com.rowanmcalpin.xenith.subsystems/TelemetryController///Pointin
 $dokka.location:com.rowanmcalpin.xenith.subsystems/TelemetryController/TelemetryController/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.subsystems/-telemetry-controller/-telemetry-controller.html
 $dokka.location:com.rowanmcalpin.xenith.subsystems/TelemetryController/continuous/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.subsystems/-telemetry-controller/continuous.html
 $dokka.location:com.rowanmcalpin.xenith.subsystems/TelemetryController/telemetryData/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.subsystems/-telemetry-controller/telemetry-data.html
+$dokka.location:com.rowanmcalpin.xenith.system////PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/DefaultFlags///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-default-flags/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag.COMMAND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-xenith/com.rowanmcalpin.xenith.system/-flag/-c-o-m-m-a-n-d/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag.SUBSYSTEM///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-xenith/com.rowanmcalpin.xenith.system/-flag/-s-u-b-s-y-s-t-e-m/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flag/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag/entries/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flag/entries.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag/valueOf/#kotlin.String/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flag/value-of.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flag/values/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flag/values.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flags///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flags/index.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flags/Flags/#kotlin.Array[com.rowanmcalpin.xenith.system.Flag]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flags/-flags.html
+$dokka.location:com.rowanmcalpin.xenith.system/Flags/selection/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.system/-flags/selection.html
 com.rowanmcalpin.xenith.command
 com.rowanmcalpin.xenith.command.groups
 com.rowanmcalpin.xenith.command.utility
@@ -169,4 +182,5 @@ com.rowanmcalpin.xenith.hardware
 com.rowanmcalpin.xenith.hardware.control
 com.rowanmcalpin.xenith.opmode
 com.rowanmcalpin.xenith.subsystems
+com.rowanmcalpin.xenith.system
 
