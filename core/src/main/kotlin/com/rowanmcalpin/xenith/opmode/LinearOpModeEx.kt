@@ -14,9 +14,7 @@ import com.rowanmcalpin.xenith.system.defaultFlags
  * @param flags The list of flags (features) used by this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class LinearOpModeEx(vararg val flags: Flag = defaultFlags.toTypedArray()): LinearOpMode() {
-
-    val subsystems: MutableList<Subsystem> = mutableListOf()
+abstract class LinearOpModeEx(val flags: List<Flag> = defaultFlags, vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
 
     /**
      * Initialize all the [Subsystems][Subsystem].
