@@ -85,6 +85,8 @@ abstract class LinearOpModeEx(val flags: List<Flag> = defaultFlags, vararg val s
         }
         // The OpMode has been stopped, so call onStop().
         onStop()
+        // Then cancel all commands
+        CommandHandler.cancelAll()
     }
 
     /**

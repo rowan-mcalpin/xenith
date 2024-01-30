@@ -124,4 +124,14 @@ object CommandHandler {
         }
         return false
     }
+
+    /**
+     * Cancels all commands, run at the end of an OpMode.
+     */
+    fun cancelAll() {
+        runningCommands.forEach {
+            commandsToStop.add(Pair(it, true))
+        }
+        stopCommands()
+    }
 }
