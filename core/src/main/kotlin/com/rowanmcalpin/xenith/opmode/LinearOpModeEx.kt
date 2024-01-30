@@ -4,40 +4,19 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.rowanmcalpin.xenith.command.CommandHandler
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
-import com.rowanmcalpin.xenith.system.DefaultFlags
 import com.rowanmcalpin.xenith.system.Flag
-import com.rowanmcalpin.xenith.system.Flags
+import com.rowanmcalpin.xenith.system.defaultFlags
 
 /**
  * This class extends the functionality of [LinearOpMode] with functions and overrides related to
  * [Subsystems][Subsystem] and [Commands][Command].
  *
- * @param subsystems The list of subsystems used by this OpMode
+ * @param flags The list of flags (features) used by this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
+abstract class LinearOpModeEx(vararg val flags: Flag = defaultFlags.toTypedArray()): LinearOpMode() {
 
-    /**
-     * Stores all active [feature flags][Flag].
-     */
-    private val activeFlags: MutableList<Flag> = DefaultFlags.selection.toMutableList()
-
-    /**
-     * Sets the enabled feature flags for this OpMode.
-     */
-    fun setFlags(selectedFlags: Flags) {
-        clearFlags()
-        selectedFlags.selection.forEach {
-            activeFlags.add(it)
-        }
-    }
-
-    /**
-     * Disables all feature flags
-     */
-    fun clearFlags() {
-        activeFlags.clear()
-    }
+    val subsystems: MutableList<Subsystem> = mutableListOf()
 
     /**
      * Initialize all the [Subsystems][Subsystem].
@@ -79,27 +58,29 @@ abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): Lin
         // Set the opMode variable to this OpMode
         OpModeInfo.opMode = this
         // Initialize subsystems if they are used
-        if (activeFlags.contains(Flag.SUBSYSTEM)) {
+        if (flags.contains(Flag.SUBSYSTEM)) {
             initializeSubsystems()
         }
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
-            if (activeFlags.contains(Flag.SUBSYSTEM)) {
+            if (flags.contains(Flag.SUBSYSTEM)) {
                 updateSubsystems()
             }
-            if (activeFlags.contains(Flag.COMMAND)) {
+            if (flags.contains(Flag.COMMAND)) {
                 updateCommandHandler()
             }
             onWaitForStart()
         }
+        // We've pressed start. Call onStartButtonPressed
+        onStartButtonPressed()
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
-            if (activeFlags.contains(Flag.SUBSYSTEM)) {
+            if (flags.contains(Flag.SUBSYSTEM)) {
                 updateSubsystems()
             }
-            if (activeFlags.contains(Flag.COMMAND)) {
+            if (flags.contains(Flag.COMMAND)) {
                 updateCommandHandler()
             }
             update()
@@ -117,6 +98,11 @@ abstract class LinearOpModeEx(vararg val subsystems: Subsystem = arrayOf()): Lin
      * This function is called repeatedly until the OpMode is started.
      */
     open fun onWaitForStart() { }
+
+    /**
+     * This function is called once when the start button is pressed
+     */
+    open fun onStartButtonPressed() { }
 
     /**
      * This function is called repeatedly once the OpMode is started & before it is stopped.
