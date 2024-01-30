@@ -62,6 +62,7 @@ $dokka.location:com.rowanmcalpin.xenith.command/Command/stop/#kotlin.Boolean/Poi
 $dokka.location:com.rowanmcalpin.xenith.command/Command/update/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command/update.html
 $dokka.location:com.rowanmcalpin.xenith.command/CommandHandler///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/index.html
 $dokka.location:com.rowanmcalpin.xenith.command/CommandHandler/addCommand/#com.rowanmcalpin.xenith.command.Command/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/add-command.html
+$dokka.location:com.rowanmcalpin.xenith.command/CommandHandler/cancelAll/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/cancel-all.html
 $dokka.location:com.rowanmcalpin.xenith.command/CommandHandler/execute/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/execute.html
 $dokka.location:com.rowanmcalpin.xenith.command/CommandHandler/hasActiveSubsystem/#com.rowanmcalpin.xenith.subsystems.Subsystem/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/has-active-subsystem.html
 $dokka.location:com.rowanmcalpin.xenith.command/CommandHandler/startCommands/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.command/-command-handler/start-commands.html
