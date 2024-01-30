@@ -138,7 +138,7 @@ $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/velocity/#/PointingToDe
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/zeroPowerBehavior/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/zero-power-behavior.html
 $dokka.location:com.rowanmcalpin.xenith.opmode////PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/index.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/index.html
-$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/LinearOpModeEx/#kotlin.Array[com.rowanmcalpin.xenith.system.Flag]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/-linear-op-mode-ex.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/LinearOpModeEx/#kotlin.collections.List[com.rowanmcalpin.xenith.system.Flag]#kotlin.Array[com.rowanmcalpin.xenith.subsystems.Subsystem]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/-linear-op-mode-ex.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/flags/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/flags.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/initializeSubsystems/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/initialize-subsystems.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/LinearOpModeEx/onInit/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-linear-op-mode-ex/on-init.html
