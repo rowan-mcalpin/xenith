@@ -109,7 +109,7 @@ $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx.Type/ticksPerRevolution
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx.Type/valueOf/#kotlin.String/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/-type/value-of.html
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx.Type/values/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/-type/values.html
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/index.html
-$dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/MotorEx/#kotlin.String#com.rowanmcalpin.xenith.hardware.MotorEx.Type#kotlin.Double#kotlin.Function0[kotlin.Boolean]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/-motor-ex.html
+$dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/MotorEx/#kotlin.String#com.rowanmcalpin.xenith.hardware.MotorEx.Type#kotlin.Double#com.qualcomm.robotcore.hardware.DcMotorSimple.Direction#kotlin.Function0[kotlin.Boolean]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/-motor-ex.html
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/controller/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/controller.html
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/currentPosition/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/current-position.html
 $dokka.location:com.rowanmcalpin.xenith.hardware/MotorEx/deviceName/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.hardware/-motor-ex/device-name.html
