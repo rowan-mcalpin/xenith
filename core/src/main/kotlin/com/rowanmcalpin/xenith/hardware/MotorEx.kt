@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorController
 import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.DcMotorSimple
+import com.qualcomm.robotcore.hardware.DcMotorSimple.Direction
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit
@@ -23,6 +24,7 @@ open class MotorEx(
     val deviceName: String,
     val type: Type = Type.GOBILDA_YELLOWJACKET,
     val gearRatio: Double = 19.2,
+    val direction: Direction = Direction.FORWARD,
     val resetEncoderOnInit: () -> Boolean = { true }) {
 
     //region Extended functionality
@@ -93,9 +95,6 @@ open class MotorEx(
     //endregion
 
     //region DcMotorSimple members
-    open var direction: DcMotorSimple.Direction?
-        get() = motor.direction
-        set(it) { motor.direction = it }
     open var power
         get() = motor.power
         set(it) { motor.power = it }

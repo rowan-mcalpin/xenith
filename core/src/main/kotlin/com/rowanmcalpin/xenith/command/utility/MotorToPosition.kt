@@ -27,7 +27,7 @@ class MotorToPosition(
     private val speed: Double,
     override val requirements: List<Subsystem>,
     override val protected: Boolean = false,
-    private val errorThreshold: Int = 15,
+    private val errorThreshold: Int = 30,
     private val holdPosition: Boolean = true
 ): Command() {
     constructor (
@@ -37,7 +37,7 @@ class MotorToPosition(
         speed: Double,
         requirement: Subsystem,
         protected: Boolean = false,
-        errorThreshold: Int = 15,
+        errorThreshold: Int = 30,
         holdPosition: Boolean = true
     ): this(motor, controller, target, speed, listOf(requirement), protected, errorThreshold, holdPosition)
 
