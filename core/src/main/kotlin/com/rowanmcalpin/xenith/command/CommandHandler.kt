@@ -130,8 +130,16 @@ object CommandHandler {
      */
     fun cancelAll() {
         runningCommands.forEach {
-            commandsToStop.add(Pair(it, true))
+            it.stop(true)
         }
-        stopCommands()
+        runningCommands.clear()
+        commandsToStart.forEach {
+            it.stop(true)
+        }
+        commandsToStart.clear()
+        commandsToStop.forEach {
+            it.first.stop(it.second)
+        }
+        commandsToStop.clear()
     }
 }
