@@ -12,11 +12,11 @@ See [installation.md](https://github.com/rowan-mcalpin/xenith/blob/main/docs/pag
 Xenith was designed with a low learning curve in mind. Creating OpModes are nearly the same as using
 the stock SDK. However, there are some differences.
 
-First, you should be aware of the `LinearOpModeEx` class. It extends LinearOpMode by adding functions
-that are called during the loop. However, you can go the entirely custom route and override `runOpMode`
-to do it all yourself. It will be called the exact same way the stock `runOpMode` is called, and
+First, you should be aware of the `XenithOpMode` class. It is functionally similar to the OpMode class
+but it adds functions that are called during the loop automatically. However, you can go the entirely custom route and 
+override `runOpMode` to do it all yourself. It will be called the exact same way the stock `runOpMode` is called, and
 won't do anything special. However, if you override `runOpMode`, you will not be able to use the
-other functions defined in `LinearOpModeEx`, such as `onInit`, `onWaitForStart`, `update`, and
+other functions defined in `XenithOpMode`, such as `onInit`, `onWaitForStart`, `update`, and
 `onStop`.
 
 ### `onInit`
