@@ -5,7 +5,6 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
 /**
  * This class handles the scheduling & running of [Commands][Command].
  */
-@Suppress("unused")
 object CommandHandler {
     /**
      * The [Commands][Command] currently running.

@@ -24,6 +24,6 @@ class TelemetryCommand(private val message: () -> String, private val time: Doub
     }
 
     override fun onUpdate() {
-
+        TODO()
     }
 }

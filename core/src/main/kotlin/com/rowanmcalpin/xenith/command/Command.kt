@@ -89,7 +89,7 @@ abstract class Command {
 
     /**
      * This allows for the functionality of referencing a command variable as a function (and automatically scheduling
-     * it when that occurs.
+     * it when that occurs).
      */
     operator fun invoke() {
         CommandHandler.addCommand(this)

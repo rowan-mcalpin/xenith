@@ -4,24 +4,33 @@ import com.qualcomm.robotcore.util.ElapsedTime
 import kotlin.math.abs
 
 /**
- * This class controls a motor using proportional, integral, and derivative coefficients to calculate the power that the
- * motor should be set to during any given time.
+ * This is a control class using proportional, integral, and derivative coefficients to calculate an optimal output.
  *
  * @param kP the proportional coefficient
  * @param kI the integral coefficient
  * @param kD the derivative coefficient
  */
 @Suppress("unused")
-class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: () -> Double = { 0.0 }, private val kD: () -> Double = { 0.0 }): MotorController() {
+class PIDController(
+    private val kP: () -> Double = { 0.005 },
+    private val kI: () -> Double = { 0.0 },
+    private val kD: () -> Double = { 0.0 }): ControlLoop() {
     /**
-     * This class controls a motor using proportional, integral, and derivative coefficients to calculate the power that the
-     * motor should be set to during any given time.
+     * This is a control class using proportional, integral, and derivative coefficients to calculate an optimal output.
      *
      * @param kP the proportional coefficient
      * @param kI the integral coefficient
      * @param kD the derivative coefficient
      */
     constructor(kP: Double, kI: Double, kD: Double): this({ kP },{ kI },{ kD })
+
+    /**
+     * This is a control class using proportional, integral, and derivative coefficients to calculate an optimal output.
+     *
+     * @param coefficients the triplet of coefficients for this PID controller
+     */
+    constructor(coefficients: PIDTriplet): this(coefficients.kP, coefficients.kI, coefficients.kD)
+
     /**
      * The sum of the error over time.
      */
@@ -38,11 +47,6 @@ class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: ()
     private var lastError: Double = 0.0
 
     /**
-     * The target value (usually position or velocity) that the MotorController should be aiming for.
-     */
-    override var target: Double = 0.0
-
-    /**
      * Initializes the motor controller.
      */
     override fun initialize() {
@@ -55,7 +59,7 @@ class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: ()
      * @param state the current position of the motor
      * @return the calculated motor power
      */
-    override fun calculate(state: Double): Double {
+    override fun calculate(state: Double, target: Double): Double {
         // Calculate motor power
         val error: Double = target - state
         integralSum += error * timer.seconds()
@@ -75,10 +79,26 @@ class PIDController(private val kP: () -> Double = { 0.005 }, private val kI: ()
      * @param threshold the maximum distance from the target that should return true
      * @return whether the current state lies within the threshold from the target.
      */
-    override fun isWithinThreshold(state: Double, threshold: Double): Boolean {
+    override fun isWithinThreshold(state: Double, target: Double, threshold: Double): Boolean {
         if (abs(target - state) < threshold) {
             return true
         }
         return false
     }
+
+    override fun reset() {
+        timer.reset()
+    }
+}
+
+/**
+ * This is a triplet of values used to set the constants of a PID controller in a separate grouping (so they can be more
+ * easily modified by other classes).
+ *
+ * @param kP the proportional coefficient
+ * @param kI the integral coefficient
+ * @param kD the derivative coefficient
+ */
+data class PIDTriplet(val kP: () -> Double, val kI: () -> Double, val kD: () -> Double) {
+    constructor(kP: Double, kI: Double, kD: Double): this({ kP }, { kI }, { kD })
 }
