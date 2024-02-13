@@ -4,12 +4,12 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.util.Range
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.hardware.MotorEx
-import com.rowanmcalpin.xenith.hardware.control.MotorController
+import com.rowanmcalpin.xenith.hardware.control.ControlLoop
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 import kotlin.math.max
 
 /**
- * Moves the motor to a position using a specified [MotorController].
+ * Moves the motor to a position using a specified [ControlLoop].
  *
  * @param motor the motor to control
  * @param controller the controller to use
@@ -22,7 +22,7 @@ import kotlin.math.max
  */
 class MotorToPosition(
     private val motor: MotorEx,
-    private val controller: MotorController,
+    private val controller: ControlLoop,
     private val target: Int,
     private val speed: Double,
     override val requirements: List<Subsystem>,
@@ -32,7 +32,7 @@ class MotorToPosition(
 ): Command() {
     constructor (
         motor: MotorEx,
-        controller: MotorController,
+        controller: ControlLoop,
         target: Int,
         speed: Double,
         requirement: Subsystem,
@@ -42,16 +42,15 @@ class MotorToPosition(
     ): this(motor, controller, target, speed, listOf(requirement), protected, errorThreshold, holdPosition)
 
     override val finished
-        get() = controller.isWithinThreshold(motor.currentPosition.toDouble(), errorThreshold.toDouble())
+        get() = controller.isWithinThreshold(motor.currentPosition.toDouble(), target.toDouble(), errorThreshold.toDouble())
 
     override fun onStart() {
         controller.initialize()
         motor.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER
-        controller.target = target.toDouble()
     }
 
     override fun onUpdate() {
-        val idealPower = controller.calculate(motor.currentPosition.toDouble())
+        val idealPower = controller.calculate(motor.currentPosition.toDouble(), target.toDouble())
         val clippedPower = Range.clip(idealPower, -max(speed, 1.0), max(speed, 1.0))
         motor.power = clippedPower
     }

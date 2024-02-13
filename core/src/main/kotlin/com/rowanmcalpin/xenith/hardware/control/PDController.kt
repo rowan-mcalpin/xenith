@@ -11,7 +11,7 @@ import kotlin.math.abs
  * @param kD the derivative coefficient
  */
 @Suppress("unused")
-class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () -> Double = { 0.0 }): MotorController() {
+class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () -> Double = { 0.0 }): ControlLoop() {
     /**
      * This class controls a motor using proportional and derivative coefficients to calculate the power that the motor
      * should be set to during any given time.
@@ -20,10 +20,6 @@ class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () 
      * @param kD the derivative coefficient
      */
     constructor(kP: Double, kD: Double): this({ kP },{ kD })
-    /**
-     * The target value (usually position or velocity) that the MotorController should be aiming for.
-     */
-    override var target: Double = 0.0
 
     /**
      * The timer used to keep track of time loss between loops.
@@ -48,7 +44,7 @@ class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () 
      * @param state the current position of the motor
      * @return the calculated motor power
      */
-    override fun calculate(state: Double): Double {
+    override fun calculate(state: Double, target: Double): Double {
         val error = target - state
         val derivative = (error - lastError) * timer.seconds()
         lastError = error
@@ -66,10 +62,14 @@ class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () 
      * @param threshold the maximum distance from the target that should return true
      * @return whether the current state lies within the threshold from the target.
      */
-    override fun isWithinThreshold(state: Double, threshold: Double): Boolean {
+    override fun isWithinThreshold(state: Double, target: Double, threshold: Double): Boolean {
         if (abs(target - state) < threshold) {
             return true
         }
         return false
+    }
+
+    override fun reset() {
+        timer.reset()
     }
 }

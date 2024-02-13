@@ -6,7 +6,8 @@ import com.rowanmcalpin.xenith.hardware.MotorEx
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 
 /**
- * Powers the motor with no internal PID keeping the speed consistent.
+ * Powers the motor with no internal PID keeping the speed consistent. Effectively is a direct pipeline to the motor
+ * power
  *
  * @param motor the motor to control
  * @param power the power to set the motor to
@@ -17,6 +18,14 @@ class PowerMotor(
     private val power: Double,
     override val requirements: List<Subsystem>
 ): Command() {
+    /**
+     * Powers the motor with no internal PID keeping the speed consistent. Effectively is a direct pipeline to the motor
+     * power.
+     *
+     * @param motor the motor to control
+     * @param power the power to set the motor to
+     * @param requirement the subsystem involved in the command
+     */
     constructor (motor: MotorEx, power: Double, requirement: Subsystem):
             this(motor, power, listOf(requirement))
 

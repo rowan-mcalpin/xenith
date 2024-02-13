@@ -3,17 +3,16 @@ package com.rowanmcalpin.xenith.hardware
 import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorController
 import com.qualcomm.robotcore.hardware.DcMotorEx
-import com.qualcomm.robotcore.hardware.DcMotorSimple
 import com.qualcomm.robotcore.hardware.DcMotorSimple.Direction
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit
-import com.rowanmcalpin.xenith.hardware.control.MotorController
 import com.rowanmcalpin.xenith.opmode.OpModeInfo
+import com.rowanmcalpin.xenith.hardware.control.ControlLoop
 
 /**
  * This class is the Xenith extension of the DcMotorEx class. It allows more customizable control of a motor, using a
- * specific [MotorController], and avoids having to manually run the `hardwareMap.get()` function.
+ * specific [ControlLoop], and avoids having to manually run the `hardwareMap.get()` function.
  *
  * @param deviceName the name of the motor, specified by the configuration in the driver station app
  * @param type the type of internal motor used
