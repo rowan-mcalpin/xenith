@@ -1,6 +1,6 @@
 package com.rowanmcalpin.xenith.opmode
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.eventloop.opmode.OpMode
 
 /**
  * The class that contains things that should be able to be referenced from anywhere in the library. For example, a
@@ -10,5 +10,5 @@ object OpModeInfo {
     /**
      * The currently running OpMode.
      */
-    lateinit var opMode: LinearOpMode
+    lateinit var opMode: OpMode
 }
