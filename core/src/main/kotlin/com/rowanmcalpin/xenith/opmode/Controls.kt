@@ -43,6 +43,9 @@ abstract class Controls {
 
         gamepad1.initialize()
         gamepad2.initialize()
+
+        OpModeInfo.gamepad1 = gamepad1
+        OpModeInfo.gamepad2 = gamepad2
     }
 
     /**
