@@ -13,7 +13,13 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
  * @param subsystems all subsystems to use in this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class XenithOpMode(val controls: Controls, vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
+abstract class XenithOpMode(vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
+
+    /**
+     * The reference to the [Controls] class for this OpMode
+     */
+    open val controls: Controls? = null
+
     /**
      * Initialize all the [Subsystems][Subsystem].
      */
@@ -55,13 +61,13 @@ abstract class XenithOpMode(val controls: Controls, vararg val subsystems: Subsy
         OpModeInfo.opMode = this
         // Initialize subsystems
         initializeSubsystems()
-        controls.initializeGamepads()
-        controls.bindCommands()
+        controls?.initializeGamepads()
+        controls?.bindCommands()
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
-            controls.updateGamepads()
+            controls?.updateGamepads()
             updateSubsystems()
             updateCommandHandler()
             onWaitForStart()
@@ -70,7 +76,7 @@ abstract class XenithOpMode(val controls: Controls, vararg val subsystems: Subsy
         onStartButtonPressed()
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
-            controls.updateGamepads()
+            controls?.updateGamepads()
             updateSubsystems()
             updateCommandHandler()
             update()
