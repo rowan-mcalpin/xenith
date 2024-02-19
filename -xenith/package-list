@@ -214,7 +214,7 @@ $dokka.location:com.rowanmcalpin.xenith.opmode/OpModeInfo/gamepad1/#/PointingToD
 $dokka.location:com.rowanmcalpin.xenith.opmode/OpModeInfo/gamepad2/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-op-mode-info/gamepad2.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/OpModeInfo/opMode/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-op-mode-info/op-mode.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/index.html
-$dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode/XenithOpMode/#com.rowanmcalpin.xenith.opmode.Controls#kotlin.Array[com.rowanmcalpin.xenith.subsystems.Subsystem]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/-xenith-op-mode.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode/XenithOpMode/#kotlin.Array[com.rowanmcalpin.xenith.subsystems.Subsystem]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/-xenith-op-mode.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode/controls/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/controls.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode/initializeSubsystems/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/initialize-subsystems.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/XenithOpMode/onInit/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-xenith-op-mode/on-init.html
