@@ -4,18 +4,16 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.rowanmcalpin.xenith.command.CommandHandler
 import com.rowanmcalpin.xenith.command.Command
 import com.rowanmcalpin.xenith.subsystems.Subsystem
-import com.rowanmcalpin.xenith.system.Flag
-import com.rowanmcalpin.xenith.system.defaultFlags
 
 /**
  * This class extends the functionality of [LinearOpMode] with functions and overrides related to
  * [Subsystems][Subsystem] and [Commands][Command].
  *
- * @param flags The list of flags (features) used by this OpMode
+ * @param controls the controls & corresponding commands to use in this OpMode
+ * @param subsystems all subsystems to use in this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
-abstract class XenithOpMode(val flags: List<Flag> = defaultFlags, vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
-
+abstract class XenithOpMode(val controls: Controls, vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
     /**
      * Initialize all the [Subsystems][Subsystem].
      */
@@ -55,32 +53,26 @@ abstract class XenithOpMode(val flags: List<Flag> = defaultFlags, vararg val sub
     override fun runOpMode() {
         // Set the opMode variable to this OpMode
         OpModeInfo.opMode = this
-        // Initialize subsystems if they are used
-        if (flags.contains(Flag.SUBSYSTEM)) {
-            initializeSubsystems()
-        }
+        // Initialize subsystems
+        initializeSubsystems()
+        controls.initializeGamepads()
+        controls.bindCommands()
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
-            if (flags.contains(Flag.SUBSYSTEM)) {
-                updateSubsystems()
-            }
-            if (flags.contains(Flag.COMMAND)) {
-                updateCommandHandler()
-            }
+            controls.updateGamepads()
+            updateSubsystems()
+            updateCommandHandler()
             onWaitForStart()
         }
         // We've pressed start. Call onStartButtonPressed
         onStartButtonPressed()
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
-            if (flags.contains(Flag.SUBSYSTEM)) {
-                updateSubsystems()
-            }
-            if (flags.contains(Flag.COMMAND)) {
-                updateCommandHandler()
-            }
+            controls.updateGamepads()
+            updateSubsystems()
+            updateCommandHandler()
             update()
         }
         // The OpMode has been stopped, so call onStop().
