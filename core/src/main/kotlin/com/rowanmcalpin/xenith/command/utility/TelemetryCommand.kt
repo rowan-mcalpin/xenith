@@ -4,10 +4,12 @@ import com.qualcomm.robotcore.util.ElapsedTime
 import com.rowanmcalpin.xenith.command.Command
 
 /**
+ * # NOT YET IMPLEMENTED.
+ *
  * Displays a message on the driver station.
  *
  * @param message the message to display
- * @param time how long to display it, in seconds. 0 is infinite.
+ * @param time how long to display it, in seconds. 0 is infinite
  */
 class TelemetryCommand(private val message: () -> String, private val time: Double = 0.0): Command() {
     

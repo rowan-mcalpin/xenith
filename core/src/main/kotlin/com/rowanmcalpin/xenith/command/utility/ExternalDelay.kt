@@ -5,7 +5,8 @@ import com.rowanmcalpin.xenith.command.Command
 /**
  * This is a delay that doesn't finish until a check returns true.
  *
- * @param check the check to invoke every time the [CommandHandler][com.rowanmcalpin.xenith.command.CommandHandler] checks if the command is finished.
+ * @param check the check to invoke every time the [CommandHandler][com.rowanmcalpin.xenith.command.CommandHandler]
+ * checks if the command is finished
  */
 class ExternalDelay(private val check: () -> Boolean): Command() {
 

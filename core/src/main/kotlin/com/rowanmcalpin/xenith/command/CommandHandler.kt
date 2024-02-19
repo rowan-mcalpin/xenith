@@ -98,7 +98,7 @@ object CommandHandler {
      * list.
      *
      * @param command the command to check for subsystem conflicts with
-     * @return The list of all [Commands][Command] currently running that share a [Subsystem] in their
+     * @return the list of all [Commands][Command] currently running that share a [Subsystem] in their
      * [requirements][Command.requirements]
      */
     private fun sharedSubsystems(command: Command): List<Command> {

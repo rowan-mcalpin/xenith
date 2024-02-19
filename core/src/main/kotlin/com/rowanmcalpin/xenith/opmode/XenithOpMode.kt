@@ -92,7 +92,7 @@ abstract class XenithOpMode(val controls: Controls, vararg val subsystems: Subsy
     open fun onWaitForStart() { }
 
     /**
-     * This function is called once when the start button is pressed
+     * This function is called once when the start button is pressed.
      */
     open fun onStartButtonPressed() { }
 

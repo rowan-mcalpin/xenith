@@ -47,17 +47,17 @@ class PIDController(
     private var lastError: Double = 0.0
 
     /**
-     * Initializes the motor controller.
+     * Initializes the control loop.
      */
     override fun initialize() {
         timer.reset()
     }
 
     /**
-     * Calculates the ideal motor power.
+     * Calculates the ideal output state.
      *
-     * @param state the current position of the motor
-     * @return the calculated motor power
+     * @param state the current input state
+     * @return the calculated output state
      */
     override fun calculate(state: Double, target: Double): Double {
         // Calculate motor power

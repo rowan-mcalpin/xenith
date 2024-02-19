@@ -25,7 +25,7 @@ abstract class ControlLoop {
      * @param state the current state of the control loop
      * @param target the target for the control loop
      * @param threshold the maximum distance from the target that should return true
-     * @return whether the current state lies within the threshold from the target.
+     * @return whether the current state lies within the threshold from the target
      */
     abstract fun isWithinThreshold(state: Double, target: Double, threshold: Double): Boolean
 

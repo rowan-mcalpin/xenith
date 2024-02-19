@@ -4,7 +4,7 @@ import com.rowanmcalpin.xenith.command.Command
 
 /**
  * This is a special command that contains and manages other commands. Used by [SequentialGroup] and
- * [ParallelGroup]
+ * [ParallelGroup].
  */
 abstract class CommandGroup : Command() {
     /**
@@ -26,7 +26,7 @@ abstract class CommandGroup : Command() {
     }
 
     /**
-     * Safely remove a command from the list
+     * Safely remove a command from the list.
      */
     fun remove(command: Command) {
         if (commands.contains(command)) {

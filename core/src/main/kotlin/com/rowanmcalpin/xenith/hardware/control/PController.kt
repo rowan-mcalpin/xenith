@@ -19,10 +19,10 @@ class PController(private val kP: () -> Double = { 0.005 }): ControlLoop() {
     constructor(kP: Double): this({ kP })
 
     /**
-     * Calculates the ideal motor power.
+     * Calculates the ideal output.
      *
-     * @param state the current position of the motor
-     * @return the calculated motor power
+     * @param state the input state
+     * @return the calculated output
      */
     override fun calculate(state: Double, target: Double): Double {
         val error: Double = target - state
@@ -37,7 +37,7 @@ class PController(private val kP: () -> Double = { 0.005 }): ControlLoop() {
      *
      * @param state the current position of the motor
      * @param threshold the maximum distance from the target that should return true
-     * @return whether the current state lies within the threshold from the target.
+     * @return whether the current state lies within the threshold from the target
      */
     override fun isWithinThreshold(state: Double, target: Double, threshold: Double): Boolean {
         if (abs(target - state) < threshold) {

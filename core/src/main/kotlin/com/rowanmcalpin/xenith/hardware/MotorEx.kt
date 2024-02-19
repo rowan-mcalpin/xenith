@@ -11,8 +11,8 @@ import com.rowanmcalpin.xenith.opmode.OpModeInfo
 import com.rowanmcalpin.xenith.hardware.control.ControlLoop
 
 /**
- * This class is the Xenith extension of the DcMotorEx class. It allows more customizable control of a motor, using a
- * specific [ControlLoop], and avoids having to manually run the `hardwareMap.get()` function.
+ * This class is the Xenith extension of the DcMotorEx class. It avoids having to manually run the `hardwareMap.get()`
+ * function. It is recommended to use with [ControlLoop]s
  *
  * @param deviceName the name of the motor, specified by the configuration in the driver station app
  * @param type the type of internal motor used

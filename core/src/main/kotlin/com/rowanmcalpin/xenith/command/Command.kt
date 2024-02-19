@@ -76,7 +76,7 @@ abstract class Command {
      * Whether this command shares any [Subsystem] requirements with any other running commands.
      *
      * @param other the other command to compare to
-     * @return Whether the other command shares any [Subsystems][Subsystem] in its [requirements]
+     * @return whether the other command shares any [Subsystems][Subsystem] in its [requirements]
      */
     internal fun sharesSubsystem(other: Command): Boolean {
         other.requirements.forEach {

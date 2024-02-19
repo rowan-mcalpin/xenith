@@ -8,8 +8,8 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
- * This class is primarily used to carry the references to all of the [Button]s, [Trigger]s, and [Joystick]s of the gamepad. It
- * contains all the references to the various [Controls] that the gamepad contains.
+ * This class is primarily used to carry the references to all of the [Button]s, [Trigger]s, and [Joystick]s of the
+ * gamepad. It contains all the references to the various [Controls] that the gamepad contains.
  *
  * @param gamepad the Qualcomm gamepad reference
  * @param triggerThreshold the minimum amount the triggers need to be pressed to be considered "pressed"
@@ -70,7 +70,7 @@ class GamepadEx(private val gamepad: Gamepad,
     }
 
     /**
-     * Updates all controls
+     * Updates all controls.
      */
     fun update() {
         controls.forEach {
@@ -83,7 +83,7 @@ class GamepadEx(private val gamepad: Gamepad,
      * variables for justPressed and justReleased, as well as commands that can be bound and automatically run when the
      * corresponding condition is met.
      *
-     * @param reference The reference to the Qualcomm button variable
+     * @param reference the reference to the Qualcomm button variable
      */
     class Button(private val reference: () -> Boolean): Control() {
         /**
@@ -136,7 +136,7 @@ class GamepadEx(private val gamepad: Gamepad,
      * and justReleased variables and their corresponding commands, but also a publicly accessible [value] variable and
      * a command that is called whenever the trigger moves.
      *
-     * @param reference The reference to the Qualcomm trigger variable
+     * @param reference the reference to the Qualcomm trigger variable
      */
     class Trigger(private val reference: () -> Float): Control() {
         /**
@@ -208,7 +208,12 @@ class GamepadEx(private val gamepad: Gamepad,
 
     /**
      * This is the most complicated of the control classes. It has a reference to the x and y values as well as a
-     * built-in button and automatic reversing of the y-axis, if wanted.
+     * built-in button and automatic reversing of the y-axis, if desired.
+     *
+     * @param referenceX the reference to the Qualcomm stick_x variable
+     * @param referenceY the reference to the Qualcomm stick_y variable
+     * @param referenceButton the reference to the Qualcomm stick_button variable
+     * @param reverseYValues whether to automatically reverse the y-axis on the joysticks
      */
     class Joystick(private val referenceX: () -> Float,
                    private val referenceY: () -> Float,
@@ -250,7 +255,7 @@ class GamepadEx(private val gamepad: Gamepad,
         var onMove: (() -> Command)? = null
 
         /**
-         * This checks & updates the current state of the Joystick and runs the commands
+         * This checks & updates the current state of the Joystick and runs the commands.
          */
         override fun update() {
             button.update()
@@ -272,7 +277,13 @@ class GamepadEx(private val gamepad: Gamepad,
         }
     }
 
-    abstract class Control() {
-        abstract fun update()
+    /**
+     * The base class that all gamepad controls inherit from. Not to be confused with [Controls].
+     */
+    open class Control() {
+        /**
+         * Updates the control.
+         */
+        open fun update() { }
     }
 }

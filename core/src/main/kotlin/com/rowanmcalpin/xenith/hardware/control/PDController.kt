@@ -60,7 +60,7 @@ class PDController(private val kP: () -> Double = { 0.005 }, private val kD: () 
      *
      * @param state the current position of the motor
      * @param threshold the maximum distance from the target that should return true
-     * @return whether the current state lies within the threshold from the target.
+     * @return whether the current state lies within the threshold from the target
      */
     override fun isWithinThreshold(state: Double, target: Double, threshold: Double): Boolean {
         if (abs(target - state) < threshold) {

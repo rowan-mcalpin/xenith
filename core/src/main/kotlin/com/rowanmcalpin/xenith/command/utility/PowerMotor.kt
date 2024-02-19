@@ -7,7 +7,7 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
 
 /**
  * Powers the motor with no internal PID keeping the speed consistent. Effectively is a direct pipeline to the motor
- * power
+ * power.
  *
  * @param motor the motor to control
  * @param power the power to set the motor to
