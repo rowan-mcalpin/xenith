@@ -155,6 +155,9 @@ $dokka.location:com.rowanmcalpin.xenith.opmode/Controls/reverseYValues/#/Pointin
 $dokka.location:com.rowanmcalpin.xenith.opmode/Controls/triggerMoveThreshold/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-controls/trigger-move-threshold.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/Controls/triggerThreshold/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-controls/trigger-threshold.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/Controls/updateGamepads/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-controls/update-gamepads.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/DefaultControls///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-default-controls/index.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/DefaultControls/DefaultControls/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-default-controls/-default-controls.html
+$dokka.location:com.rowanmcalpin.xenith.opmode/DefaultControls/bindCommands/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-default-controls/bind-commands.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/GamepadEx.Button///PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-gamepad-ex/-button/index.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/GamepadEx.Button/Button/#kotlin.Function0[kotlin.Boolean]/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-gamepad-ex/-button/-button.html
 $dokka.location:com.rowanmcalpin.xenith.opmode/GamepadEx.Button/down/#/PointingToDeclaration/-xenith/com.rowanmcalpin.xenith.opmode/-gamepad-ex/-button/down.html
