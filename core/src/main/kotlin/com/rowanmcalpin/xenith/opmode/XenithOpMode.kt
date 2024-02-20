@@ -9,16 +9,16 @@ import com.rowanmcalpin.xenith.subsystems.Subsystem
  * This class extends the functionality of [LinearOpMode] with functions and overrides related to
  * [Subsystems][Subsystem] and [Commands][Command].
  *
- * @param controls the controls & corresponding commands to use in this OpMode
  * @param subsystems all subsystems to use in this OpMode
  */
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class XenithOpMode(vararg val subsystems: Subsystem = arrayOf()): LinearOpMode() {
 
     /**
-     * The reference to the [Controls] class for this OpMode
+     * The reference to the [Controls] class for this OpMode. Defaults to [DefaultControls]. Override this variable to
+     * use your own custom command bindings.
      */
-    open val controls: Controls? = null
+    open val controls: Controls = DefaultControls()
 
     /**
      * Initialize all the [Subsystems][Subsystem].
@@ -61,13 +61,13 @@ abstract class XenithOpMode(vararg val subsystems: Subsystem = arrayOf()): Linea
         OpModeInfo.opMode = this
         // Initialize subsystems
         initializeSubsystems()
-        controls?.initializeGamepads()
-        controls?.bindCommands()
+        controls.initializeGamepads()
+        controls.bindCommands()
         // When the OpMode is initialized, call onInit().
         onInit()
         // Now call onWaitForStart() repeatedly until the OpMode is started.
         while(!isStarted && !isStopRequested) {
-            controls?.updateGamepads()
+            controls.updateGamepads()
             updateSubsystems()
             updateCommandHandler()
             onWaitForStart()
@@ -76,7 +76,7 @@ abstract class XenithOpMode(vararg val subsystems: Subsystem = arrayOf()): Linea
         onStartButtonPressed()
         // Now that the OpMode has been started, call update() repeatedly until it is stopped.
         while (!isStopRequested && isStarted) {
-            controls?.updateGamepads()
+            controls.updateGamepads()
             updateSubsystems()
             updateCommandHandler()
             update()
