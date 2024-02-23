@@ -1,5 +1,6 @@
 package com.rowanmcalpin.xenith.command
 
+import com.rowanmcalpin.xenith.opmode.OpModeInfo
 import com.rowanmcalpin.xenith.subsystems.Subsystem
 
 /**
@@ -81,11 +82,10 @@ object CommandHandler {
         // from the list of running commands
         commandsToStop.forEach {
             // If the command is currently in the list of running commands, remove it
-            if(runningCommands.contains(it.first)) {
-                runningCommands.remove(it.first)
-            }
+            runningCommands.remove(it.first)
             // Call the `stop()` function of each command to stop
             it.first.stop(it.second)
+            OpModeInfo.opMode.telemetry.addData("Stopping command", it.first)
         }
 
         // Clear the list of commands to stop
