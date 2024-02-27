@@ -38,6 +38,7 @@ object CommandHandler {
         sharedSubsystems.forEach { other ->
             if (!other.protected) {
                 commandsToStop.add(Pair(other, true))
+                OpModeInfo.opMode.telemetry.addData("Stopping command", other)
             } else {
                 // There is a protected command that shares a subsystem.
                 // This command cannot be started.
@@ -104,7 +105,7 @@ object CommandHandler {
     private fun sharedSubsystems(command: Command): List<Command> {
         val results: MutableList<Command> = mutableListOf()
         runningCommands.forEach { other ->
-            if(command.sharesSubsystem(other)) {
+            if (command.sharesSubsystem(other)) {
                 results.add(other)
             }
         }

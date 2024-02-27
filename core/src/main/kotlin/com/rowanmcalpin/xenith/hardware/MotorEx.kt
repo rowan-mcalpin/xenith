@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController
 import com.qualcomm.robotcore.hardware.DcMotorEx
 import com.qualcomm.robotcore.hardware.DcMotorSimple.Direction
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType
+import com.rowanmcalpin.xenith.command.Command
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit
 import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit
 import com.rowanmcalpin.xenith.opmode.OpModeInfo
@@ -98,12 +99,6 @@ open class MotorEx(
         get() = motor.power
         set(it) { motor.power = it }
     //endregion
-
-    fun holdCurrentPosition() {
-        mode = DcMotor.RunMode.RUN_TO_POSITION
-        motor.targetPosition = motor.currentPosition
-        motor.power = 1.0
-    }
 
     /**
      * This enum stores the information of each different type of motor.
