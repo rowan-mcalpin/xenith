@@ -32,6 +32,7 @@ object CommandHandler {
 
         if(sharedSubsystems.isEmpty()) {
             commandsToStart.add(command)
+            OpModeInfo.opMode.telemetry.addData("No shared subsystems. Added command", command)
             return
         }
 

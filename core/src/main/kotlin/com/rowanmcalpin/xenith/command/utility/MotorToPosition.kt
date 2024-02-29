@@ -57,7 +57,7 @@ class MotorToPosition(
 
     override fun onStop(blocked: Boolean) {
         if(holdPosition) {
-            HoldPosition(motor, controller)
+            HoldPosition(motor, controller, requirements)
         } else {
             motor.power = 0.0
         }
