@@ -1,6 +1,8 @@
 [![JitPack](https://img.shields.io/jitpack/version/com.rowanmcalpin/xenith?label=JitPack)](https://jitpack.io/#com.rowanmcalpin/xenith)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/rowan-mcalpin/xenith?label=Commits)](https://github.com/rowan-mcalpin/xenith/commits/main/)
 
+# This project is on hold as of 4/8/2024
+
 # Xenith
 
 Xenith is an entirely custom library for FIRST Tech Challenge. It introduces new features and functionality to the base SDK, such as commands, more customizable motor control, and simpler OpMode creation.
